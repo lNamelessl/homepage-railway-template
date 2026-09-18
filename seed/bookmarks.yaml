@@ -1,0 +1,12 @@
+# Bookmarks render as a link strip per group (match the group names to
+# settings.yaml layout to control position).
+- Links:
+    - Railway Dashboard:
+        - abbr: RW
+        - href: https://railway.com/dashboard
+    - gethomepage.dev:
+        - abbr: HP
+        - href: https://gethomepage.dev/
+    - Homepage GitHub:
+        - abbr: GH
+        - href: https://github.com/gethomepage/homepage

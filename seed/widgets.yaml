@@ -1,0 +1,17 @@
+# Info widgets shown in the header. These three need zero credentials.
+# Secrets for API widgets (e.g. OpenWeatherMap) should NOT be written here —
+# use HOMEPAGE_VAR_* environment variables and {{HOMEPAGE_VAR_...}} in config.
+- greeting:
+    text_size: 2xl
+    text: Welcome to your dashboard
+
+- datetime:
+    text_size: xl
+    format:
+      dateStyle: long
+      timeStyle: short
+      hourCycle: h23
+
+- search:
+    provider: duckduckgo
+    target: _blank

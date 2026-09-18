@@ -1,0 +1,24 @@
+# Your services. Group name = section title; each entry = one card.
+# siteMonitor lets Homepage ping the URL itself and show a live status dot —
+# no API key needed. For rich widgets (stats from Sonarr, Plex, Proxmox, ...)
+# see https://gethomepage.dev/widgets/ — remember Railway has no Docker
+# socket, so use the HTTP/API-based widgets.
+- Tools:
+    - DuckDuckGo:
+        icon: duckduckgo.png
+        href: https://duckduckgo.com
+        description: Search the web
+        siteMonitor: https://duckduckgo.com
+
+    - GitHub:
+        icon: github.png
+        href: https://github.com
+        description: Where the world builds software
+        siteMonitor: https://github.com
+
+- Docs:
+    - Homepage Docs:
+        icon: homepage.png
+        href: https://gethomepage.dev
+        description: Configure widgets, services and themes
+        siteMonitor: https://gethomepage.dev
