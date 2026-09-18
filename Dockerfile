@@ -17,5 +17,9 @@ RUN chmod 755 /usr/local/bin/railway-entrypoint.sh
 #   ENTRYPOINT ["docker-entrypoint.sh"]  CMD ["node", "server.js"]  EXPOSE 3000
 #   runs as root by default; docker-entrypoint.sh handles PUID/PGID drop and
 #   IPv6/IPv4 bind probing. We keep its logic by exec-ing into it after seeding.
+# Auth is baked on here (overridable by a service variable) so the marketplace
+# template ships with zero deploy-form prompts and never deploys unprotected.
+ENV HOMEPAGE_AUTH_ENABLED=true
+
 ENTRYPOINT ["railway-entrypoint.sh"]
 CMD ["node", "server.js"]
