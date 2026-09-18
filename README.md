@@ -18,6 +18,7 @@ The [gethomepage.dev](https://gethomepage.dev) dashboard — your services, widg
 | `HOMEPAGE_AUTH_ENABLED` | `true` — the auth gate is always on |
 | `HOMEPAGE_AUTH_PASSWORD` | **Auto-generated per deploy** (24 alphanumeric chars). This is your login password. |
 | `HOMEPAGE_AUTH_SECRET` | **Auto-generated per deploy** (32 chars). Signs/encrypts the session cookie. |
+| `HOMEPAGE_EXTERNAL_URL` | `https://${{RAILWAY_PUBLIC_DOMAIN}}` — required by Homepage v2 auth (cookies are marked `Secure`). If you switch to a custom domain, update this to match. |
 | `HOMEPAGE_ALLOWED_HOSTS` | `${{RAILWAY_PUBLIC_DOMAIN}}` + Railway's healthcheck probe host. Add any custom domains here (comma-separated, no spaces). |
 
 ## First login
@@ -78,6 +79,7 @@ A single Homepage service with its config volume runs around **$3–5/month** on
 
 | Symptom | Fix |
 |---|---|
+| `500` errors on login/API routes with `HOMEPAGE_EXTERNAL_URL ... is missing` in logs | Auth is enabled, so Homepage v2 requires `HOMEPAGE_EXTERNAL_URL` — keep it set to your public `https://` URL. |
 | `Blocked host` error / page refuses to load | Your host isn't in `HOMEPAGE_ALLOWED_HOSTS`. Add it (comma-separated, no spaces) and redeploy. |
 | Locked out / forgot password | Read `HOMEPAGE_AUTH_PASSWORD` in Variables (it's never written to the config volume), or set a new value and redeploy. |
 | Config edits reverted after redeploy | You edited the repo `seed/` files, not the volume. Re-deploys don't overwrite the volume (by design); edit on the volume, or delete the volume to re-seed. |
